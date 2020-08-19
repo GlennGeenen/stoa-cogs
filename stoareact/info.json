@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "Felagund",
+    "SHORT" : "Automatic Reaction",
+    "DESCRIPTION" : "React to messages automatically!",
+    "DISABLED" : false,
+    "NAME" : "StoaReact",
+    "TAGS" : ["general"],
+    "INSTALL_MSG" : "React to messages automatically!"
+}
