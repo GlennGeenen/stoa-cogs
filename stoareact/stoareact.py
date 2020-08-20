@@ -51,7 +51,7 @@ class StoaReact(commands.Cog):
     async def create_smart_reaction(self, guild, word, response, message):
         try:
             await message.channel.send("Add reaction **{}** for trigger **{}**.".format(
-                response, message
+                response, message.content
             ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
@@ -70,7 +70,7 @@ class StoaReact(commands.Cog):
     async def remove_smart_reaction(self, guild, word, response, message):
         try:
             await message.channel.send("Remove reaction **{}** for trigger **{}**.".format(
-                response, message
+                response, message.content
             ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
@@ -101,6 +101,6 @@ class StoaReact(commands.Cog):
         for response in reacts:
             if set(w.lower() for w in reacts[response]).intersection(words):
                 try:
-                    await self.bot.say(response)
+                    await message.channel.send(response)
                 except (discord.errors.Forbidden, discord.errors.InvalidArgument, discord.errors.NotFound):
                     pass
