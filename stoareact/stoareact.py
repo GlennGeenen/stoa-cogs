@@ -50,7 +50,7 @@ class StoaReact(commands.Cog):
 
     async def create_smart_reaction(self, guild, word, response, message):
         try:
-            await self.bot.say("Add reaction **{}** for trigger **{}**.".format(
+            await message.channel.send("Add reaction **{}** for trigger **{}**.".format(
                 response, message
             ))
             reactions = await self.conf.guild(guild).reactions()
@@ -69,7 +69,7 @@ class StoaReact(commands.Cog):
 
     async def remove_smart_reaction(self, guild, word, response, message):
         try:
-            await self.bot.say("Remove reaction **{}** for trigger **{}**.".format(
+            await message.channel.send("Remove reaction **{}** for trigger **{}**.".format(
                 response, message
             ))
             reactions = await self.conf.guild(guild).reactions()
