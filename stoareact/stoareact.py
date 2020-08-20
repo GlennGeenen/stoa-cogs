@@ -106,7 +106,7 @@ class StoaReact(commands.Cog):
         for response in reacts:
             word = reacts[response][0].lower()
             log.info("{} - {}".format(word, sentence))
-            if word in sentence
+            if word in sentence:
                 try:
                     await message.channel.send(response)
                 except (discord.errors.Forbidden, discord.errors.InvalidArgument, discord.errors.NotFound):
