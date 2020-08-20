@@ -104,10 +104,11 @@ class StoaReact(commands.Cog):
             return
         sentence = message.content.lower()
         for response in reacts:
-            word = reacts[response][0].lower()
-            log.info("{} - {}".format(word, sentence))
-            if word in sentence:
-                try:
-                    await message.channel.send(response)
-                except (discord.errors.Forbidden, discord.errors.InvalidArgument, discord.errors.NotFound):
-                    pass
+            if len(reacts[response]) > 0:
+                word = reacts[response][0].lower()
+                log.info("{} - {}".format(word, sentence))
+                if word in sentence:
+                    try:
+                        await message.channel.send(response)
+                    except (discord.errors.Forbidden, discord.errors.InvalidArgument, discord.errors.NotFound):
+                        pass
