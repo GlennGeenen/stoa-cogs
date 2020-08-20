@@ -12,7 +12,7 @@ class StoaReact(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.conf = Config.get_conf(self, identifier=685743681)
+        self.conf = Config.get_conf(self, identifier=685743681, force_registration=True)
         self.conf.register_guild(
             **self.default_guild_settings
         )
