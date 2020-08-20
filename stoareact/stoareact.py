@@ -7,7 +7,8 @@ class StoaReact(commands.Cog):
     """Create automatic reactions when trigger words are typed in chat"""
 
     default_guild_settings = {
-        "reactions": {}
+        "reactions": {},
+        "channels": []
     }
 
     def __init__(self, bot):
@@ -51,7 +52,7 @@ class StoaReact(commands.Cog):
     async def create_smart_reaction(self, guild, word, response, message):
         try:
             await message.channel.send("Add reaction **{}** for trigger **{}**.".format(
-                response, message.content
+                response, message.content.rsplit(' ', 1)[0]
             ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
@@ -70,7 +71,7 @@ class StoaReact(commands.Cog):
     async def remove_smart_reaction(self, guild, word, response, message):
         try:
             await message.channel.send("Remove reaction **{}** for trigger **{}**.".format(
-                response, message.content
+                response, message.content.rsplit(' ', 1)[0]
             ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
