@@ -1,11 +1,8 @@
 import copy
 import discord
-import logging
 
 from redbot.core import Config, commands, checks
 from redbot.core.utils.chat_formatting import pagify
-
-log = logging.getLogger("red.stoacogs.stoareact")
 
 class StoaReact(commands.Cog):
     """Create automatic reactions when trigger words are typed in chat"""
@@ -56,7 +53,7 @@ class StoaReact(commands.Cog):
     async def create_smart_reaction(self, guild, word, response, message):
         try:
             await message.channel.send("Add reaction **{}** for trigger **{}**.".format(
-                response, message.content.split(' ')[1]
+                response, word
             ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
@@ -75,7 +72,7 @@ class StoaReact(commands.Cog):
     async def remove_smart_reaction(self, guild, word, response, message):
         try:
             await message.channel.send("Remove reaction **{}** for trigger **{}**.".format(
-                response, message.content.split(' ')[1]
+                response, word
             ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
@@ -106,7 +103,6 @@ class StoaReact(commands.Cog):
         for response in reacts:
             for reaction in reacts[response]:
                 word = reaction.lower()
-                log.info("{} - {}".format(word, sentence))
                 if word in sentence:
                     try:
                         await message.channel.send(response)
