@@ -104,8 +104,8 @@ class StoaReact(commands.Cog):
             return
         sentence = message.content.lower()
         for response in reacts:
-            if len(reacts[response]) > 0:
-                word = reacts[response][0].lower()
+            for reaction in reacts[response]:
+                word = reaction.lower()
                 log.info("{} - {}".format(word, sentence))
                 if word in sentence:
                     try:
