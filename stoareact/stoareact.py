@@ -50,8 +50,9 @@ class StoaReact(commands.Cog):
 
     async def create_smart_reaction(self, guild, word, response, message):
         try:
-            # Use the reaction to see if it's valid
-            await message.add_reaction(response)
+            await self.bot.say("Add reaction **{}** for trigger **{}**.".format(
+                response, message
+            ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
                 if word.lower() in reactions[response]:
@@ -68,8 +69,9 @@ class StoaReact(commands.Cog):
 
     async def remove_smart_reaction(self, guild, word, response, message):
         try:
-            # Use the reaction to see if it's valid
-            await message.add_reaction(response)
+            await self.bot.say("Remove reaction **{}** for trigger **{}**.".format(
+                response, message
+            ))
             reactions = await self.conf.guild(guild).reactions()
             if response in reactions:
                 if word.lower() in reactions[response]:
