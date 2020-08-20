@@ -104,9 +104,9 @@ class StoaReact(commands.Cog):
         if reacts is None:
             log.debug(f"No reacts")
             return
-        words = message.content.lower().split()
+        sentence = message.content.lower()
         for response in reacts:
-            if set(w.lower() for w in reacts[response]).intersection(words):
+            if reacts[response].lower() in sentence:
                 try:
                     await message.channel.send(response)
                 except (discord.errors.Forbidden, discord.errors.InvalidArgument, discord.errors.NotFound):
