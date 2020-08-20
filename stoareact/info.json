@@ -1,9 +1,9 @@
 {
-    "AUTHOR" : "Felagund",
-    "SHORT" : "Automatic Reaction",
-    "DESCRIPTION" : "React to messages automatically!",
-    "DISABLED" : false,
-    "NAME" : "StoaReact",
-    "TAGS" : ["general"],
-    "INSTALL_MSG" : "React to messages automatically!"
+    "author" : "Felagund",
+    "short" : "Automatic Reaction",
+    "description" : "React to messages automatically!",
+    "disabled" : false,
+    "name" : "StoaReact",
+    "tags" : ["react", "stoa"],
+    "install_msg" : "React to messages automatically!"
 }

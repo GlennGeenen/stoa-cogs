@@ -99,13 +99,12 @@ class StoaReact(commands.Cog):
         if message.author == self.bot.user:
             return
         guild = message.guild
-        log.debug(f"Message guild {guild}")
         reacts = copy.deepcopy(await self.conf.guild(guild).reactions())
         if reacts is None:
-            log.debug(f"No reacts")
             return
         sentence = message.content.lower()
         for response in reacts:
+            log.info("{}".format(reacts[response]))
             if reacts[response].lower() in sentence:
                 try:
                     await message.channel.send(response)
