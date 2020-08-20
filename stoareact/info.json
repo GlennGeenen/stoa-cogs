@@ -1,5 +1,5 @@
 {
-    "author" : "Felagund",
+    "author" : ["Felagund"],
     "short" : "Automatic Reaction",
     "description" : "React to messages automatically!",
     "disabled" : false,

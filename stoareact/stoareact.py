@@ -104,6 +104,7 @@ class StoaReact(commands.Cog):
             return
         sentence = message.content.lower()
         for response in reacts:
+            log.info("{} - {}".format(reacts[response], sentence))
             if set(w.lower() for w in reacts[response]).intersection(sentence):
                 try:
                     await message.channel.send(response)
